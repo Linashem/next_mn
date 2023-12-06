@@ -20,6 +20,10 @@ a:hover {
   opacity: 0.7;
 }
 
+main{
+  width: 1000px;
+}
+
 h2 {
   margin-top: 50px;
 }
@@ -40,4 +44,9 @@ h2 {
 }
 .nav a {
   color: white;
+}
+
+.post_title{
+  margin-bottom: 50px;
+  text-align: center;
 }
