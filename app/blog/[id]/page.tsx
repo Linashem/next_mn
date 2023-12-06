@@ -21,7 +21,6 @@ async function getData(id: number) {
 
 export async function generateMetadata({ params: { id } }: PostProps) {
   const post = await getData(id);
-
   return {
     title: post.title,
   };
