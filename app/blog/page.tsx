@@ -1,34 +1,34 @@
+"use client";
+
+import Posts from "@/components/Posts";
+import { getAllPosts } from "@/servises/getPosts";
 import { Metadata } from "next";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-interface IPost {
+export interface IPost {
   id: number;
   title: string;
 }
 
-export const metadata: Metadata = {
-  title: "Blog",
-};
+// export const metadata: Metadata = {
+//   title: "Blog",
+// };
 
-// async function getData() {
-//   const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
-//     next: { revalidate: 60 },
-//   });
-//   return response.json();
-// }
+const Blog: React.FC = () => {
+  const [posts, setPosts] = useState<IPost[]>([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    getAllPosts()
+      .then(setPosts)
+      .finally(() => setLoading(false));
+  }, []);
 
-const Blog: React.FC = async () => {
-  // const posts = await getData();
   return (
     <>
       <h2>Posts</h2>
       <ul>
-        {posts.map((post: IPost) => (
-          <li key={post.id}>
-            <Link href={`/blog/${post.id}`}>{post.title} </Link>
-          </li>
-        ))}
+        <Posts posts={posts} />
       </ul>
     </>
   );
