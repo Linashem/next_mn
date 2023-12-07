@@ -11,15 +11,15 @@ export const metadata: Metadata = {
   title: "Blog",
 };
 
-async function getData() {
-  const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
-    next: { revalidate: 60 },
-  });
-  return response.json();
-}
+// async function getData() {
+//   const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
+//     next: { revalidate: 60 },
+//   });
+//   return response.json();
+// }
 
 const Blog: React.FC = async () => {
-  const posts = await getData();
+  // const posts = await getData();
   return (
     <>
       <h2>Posts</h2>

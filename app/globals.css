@@ -43,11 +43,15 @@ h2 {
   gap: 40px;
   width: 900px;
 }
-.nav a {
+header a {
   color: white;
 }
 
 .post_title{
   margin-bottom: 50px;
   text-align: center;
+}
+
+.active{
+  text-decoration: underline;
 }
