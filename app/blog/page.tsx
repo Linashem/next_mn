@@ -1,5 +1,6 @@
 "use client";
 
+import PostSearch from "@/components/PostSearch";
 import Posts from "@/components/Posts";
 import { getAllPosts } from "@/servises/getPosts";
 import { Metadata } from "next";
@@ -10,10 +11,6 @@ export interface IPost {
   id: number;
   title: string;
 }
-
-// export const metadata: Metadata = {
-//   title: "Blog",
-// };
 
 const Blog: React.FC = () => {
   const [posts, setPosts] = useState<IPost[]>([]);
@@ -27,9 +24,8 @@ const Blog: React.FC = () => {
   return (
     <>
       <h2>Posts</h2>
-      <ul>
-        <Posts posts={posts} />
-      </ul>
+      <PostSearch onSearch={setPosts} />
+      <ul>{loading ? <h1>Loading...</h1> : <Posts posts={posts} />}</ul>
     </>
   );
 };
